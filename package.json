@@ -1,0 +1,26 @@
+{
+  "name": "Austin-BackEnd",
+  "version": "1.0.0",
+  "description": "backend jumpstart",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BetterJump/Austin-BackEnd.git"
+  },
+  "keywords": [],
+  "author": "austin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BetterJump/Austin-BackEnd/issues"
+  },
+  "homepage": "https://github.com/BetterJump/Austin-BackEnd#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "knex": "^0.16.3",
+    "pg": "^7.7.1"
+  }
+}
