@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "knex": "knex init",
+    "start": "npm i",
     "setup": "pm2 deploy ecosystem.config.js production setup",
     "deploy": "pm2 deploy ecosystem.config.js production"
   },
