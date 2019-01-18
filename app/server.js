@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 
-app.get('/comments', (req, res) => {
-  console.log('request on /comments');
+const db = require('./database');
+
+
+app.get('/comments/:id', (req, res) => {
+  db.getId(req.params.id)
+  .then(data => {
+    res.send(data.rows).status(200);
+  })
+  .catch(err => console.log(err));
 })
 
-app.listen(3002, () => {
-  console.log('Roger Roger / 3002');
-})
+app.listen(3002, _=> console.log('Roger Roger / 3002'));
