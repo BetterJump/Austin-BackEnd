@@ -8,35 +8,22 @@ const client = new pg.Client({
 })
 
 // creates a random id and retrieves it from the database
-function getOneRandom (callback) {
-  client.connect()
-  .then(_=> {
+function getOneRandom () {
+  return client.connect().then(_=> {
     let id = Math.floor(Math.random() * 10000000);
-    client.query(`SELECT * FROM comments WHERE id = ${id}`)
-    .then(data => {
-      callback(data);
-    }).catch(err => console.log(err));
+    return client.query(`SELECT * FROM comments WHERE id = ${id}`)
   }).catch(err => console.log(err));
 }
 
-// given a start id, get30 will return x number of rows;
 function getX (start, x) {
-  client.connect()
-  .then(_=> {
-    client.query(`SELECT * FROM comments WHERE id = ${start} LIMIT ${x}`)
-    .then(data => {
-      callback(data);
-    }).catch(err => console.log(err));
+  return client.connect().then(_=> {
+    return client.query(`SELECT * FROM comments WHERE id = ${start} LIMIT ${x}`)
   }).catch(err => console.log(err));
 }
 
 function getId (id) {
-  client.connect()
-  .then(_=> {
-    client.query(`SELECT * FROM comments WHERE id = ${id}`)
-    .then(data => {
-      callback(data);
-    }).catch(err => console.log(err));
+  return client.connect().then(_=> {
+    return client.query(`SELECT * FROM comments WHERE id = ${id}`)
   }).catch(err => console.log(err));
 }
 
