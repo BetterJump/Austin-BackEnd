@@ -24,4 +24,4 @@ app.post('/table', (req, res) => {
   res.send('table made boss :)').status(200);
 })
 
-app.listen(3002, _=> console.log('Roger Roger / 3002'));
+app.listen(3000, _=> console.log('Roger Roger / 3000'));
