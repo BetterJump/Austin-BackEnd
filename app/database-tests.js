@@ -1,7 +1,4 @@
-const pg = require('pg');
 const db = require('./database');
-
-
 
 async function runTests () {
   let data = [];

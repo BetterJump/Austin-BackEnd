@@ -1,0 +1,40 @@
+version: '2'
+services:
+
+  app:
+    container_name: jumpService
+    restart: always
+    build: .
+    ports:
+      - '3000:3000'
+    links:
+      - redis
+      - postgres
+      - mongo
+
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - '6379:6379'
+
+  postgres:
+    container_name: postgres
+    image: postgres
+    restart: awlays
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345678
+      POSTGRES_DB: jump
+    ports:
+      - '5432:5432'
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    restart: always
+    envirinment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 87654321
+    ports:
+      - '27017:27017'
