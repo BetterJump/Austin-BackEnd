@@ -1,35 +1,18 @@
-//const pg = require('pg');
+const pg = require('pg');
+const db = require('./app/database');
 
-// const client = new pg.Client({
-//   user: 'aust',
-//   password: '00000000',
-//   host: '127.0.0.1',
-//   database: 'jump',
-//   port: 5432,
-// })
 
-// async function one () {
-//   client.connect()
-//   client.query('SELECT * FROM comments WHERE id = 5000000')
-//   .then((results) => {
-//     return console.timeEnd();
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//     return console.timeEnd();
-//   });
-// };
 
-// let data = [];
-let x = Date.now();
-
-for(let i = 0; i < 30000000; i++) {
-  // let x = await one();
-  // data.push(x);
+async function runTests () {
+  let data = [];
+  for(let i = 0; i < 30; i++) {
+    let x = Date.now();
+    await db.getX(5000000, 100);
+    let y = Date.now();
+    data.push((y - x) / 1000);
+  }
+  console.log(data.reduce((a, b) => a + b, 0) / data.length);
 }
 
-let y = Date.now();
+runTests();
 
-console.log((y-x)/100);
-
-//console.log(data.reduce((a, b) => a + b, 0) / data.length);
